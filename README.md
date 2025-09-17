@@ -27,13 +27,15 @@ A reproducible, end-to-end analysis of U.S. flight delays: data ingestion → cl
 └── README.md
 
 ---
-📦 Dataset
+## 📦 Dataset
 
 📂 Key fields: FL_DATE, DEP_TIME, ARR_TIME, DEP_DELAY, ARR_DELAY, DISTANCE, ORIGIN, DEST, AIRLINE
 
 🎯 Target: delay_flag = 1 if ARR_DELAY > 0 else 0
-
-🧪 Data Cleaning & Feature Engineering
+ 
+ ---
+ 
+## 🧪 Data Cleaning & Feature Engineering
 
 🗓️ Converted dates to datetime
 
@@ -47,7 +49,9 @@ A reproducible, end-to-end analysis of U.S. flight delays: data ingestion → cl
 
 ✂️ Split dataset into train/test sets for modeling
 
-📊 Exploratory Data Analysis Highlights
+---
+
+## 📊 Exploratory Data Analysis Highlights
 
 ⚖️ Delay distribution — revealed class imbalance (more on-time flights)
 
@@ -59,7 +63,9 @@ A reproducible, end-to-end analysis of U.S. flight delays: data ingestion → cl
 
 📏 Correlation between distance, airtime, and delays
 
-🤖 Modeling & Evaluation
+---
+
+## 🤖 Modeling & Evaluation
 Model	Accuracy	ROC-AUC	F1 Score
 Random Forest (baseline)	0.70	0.78	0.64
 XGBoost	0.76	0.81	0.68
@@ -72,7 +78,9 @@ CatBoost	0.78	0.83	0.70
 
 ⚙️ Hyperparameter tuning (Grid / Randomized search) further improved performance
 
-💡 Key Insights
+---
+
+## 💡 Key Insights
 
 🌆 Peak-hour (evening) departures → higher chance of delays
 
@@ -88,7 +96,9 @@ CatBoost	0.78	0.83	0.70
 
 💹 Potential to reduce late arrivals and improve on-time performance
 
-🗺️ Future Roadmap
+---
+
+## 🗺️ Future Roadmap
 
 ☁️ Integrate weather features (NOAA/METAR)
 
@@ -98,8 +108,10 @@ CatBoost	0.78	0.83	0.70
 
 📉 Add model drift monitoring on new data
 
-🙌 Acknowledgements
+---
+
+## 🙌 Acknowledgements
 
 📚 Libraries: pandas, scikit-learn, xgboost, lightgbm, catboost, matplotlib, seaborn, plotly
 
-✨ Inspired by U.S. DOT / BTS on-time performance data
+---
