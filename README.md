@@ -72,7 +72,7 @@ XGBoost	0.76	0.81	0.68
 LightGBM	0.77	0.82	0.69
 CatBoost	0.78	0.83	0.70
 
-📌 Random Forest used as baseline
+📌 Random Forest used as baseline and to build relevant features for ensemble models
 
 🚀 Boosting models (XGBoost, LightGBM, CatBoost) gave higher accuracy after tuning
 
