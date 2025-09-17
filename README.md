@@ -43,11 +43,10 @@ A reproducible, end‑to‑end analysis of U.S. flight delays: data ingestion �
 
 ## 🗃️ Dataset
 
-* **Source options:** U.S. DOT / BTS On‑Time Performance data (flights, carriers, airports), or a curated subset.
 * **Typical fields:** `Year, Month, DayOfWeek, FlightDate, Airline, FlightNum, Origin, Dest, CRSDepTime, DepTime, CRSArrTime, ArrTime, DepDelay, ArrDelay, Cancelled, Distance, TaxiOut, TaxiIn, AirTime`, etc.
 * **Target(s):**
 
-  * **Classification**: `is_delayed` (e.g., ArrDelay > 15 minutes)
+  * **Classification**: `is_delayed` (e.g., ArrDelay > 0 minutes)
   * **Regression**: `ArrDelay` (minutes)
 
 > Update this section with the exact dataset(s) and any filters you applied (year range, carriers, airports).
