@@ -16,12 +16,10 @@ A reproducible, end‑to‑end analysis of U.S. flight delays: data ingestion �
 
 ## 🧱 Key Highlights
 
-* EDA over **\~1M+ records** (scalable patterns, memory‑safe filtering/aggregation).
+* EDA (scalable patterns, memory‑safe filtering/aggregation).
 * Clean feature pipeline: handling nulls/outliers, encoding categoricals, time features (month, DoW, hour), airport/carrier joins.
-* Baseline models (examples): Logistic Regression / Random Forest / Gradient Boosting for classification; Linear/XGBoost for regression.
-* Explainability: feature importances, partial patterns (e.g., peak hours, hub airports, seasonal spikes).
-
-> Replace/confirm the bullets above with the exact techniques you finalized in the notebook.
+* Baseline models (examples): Logistic Regression / Random Forest / Gradient Boosting for classification
+* Explainability: feature importances through SHAP analysis (e.g., peak hours, hub airports, seasonal spikes).
 
 ---
 
@@ -30,14 +28,9 @@ A reproducible, end‑to‑end analysis of U.S. flight delays: data ingestion �
 ```
 .
 ├── casestudy-flightdelay.ipynb   # Main analysis & modeling notebook
-├── data/                         # (Optional) local folder for raw/processed CSVs (gitignored)
-├── models/                       # (Optional) saved models / artifacts (gitignored)
-├── reports/                      # (Optional) exported charts & HTML reports
-├── requirements.txt              # (Optional) pinned dependencies
+
 └── README.md                     # This file
 ```
-
-> Tip: add a `.gitignore` to exclude large CSVs and artifacts (e.g., `data/*`, `models/*`).
 
 ---
 
@@ -47,56 +40,6 @@ A reproducible, end‑to‑end analysis of U.S. flight delays: data ingestion �
 * **Target(s):**
 
   * **Classification**: `is_delayed` (e.g., ArrDelay > 0 minutes)
-  * **Regression**: `ArrDelay` (minutes)
-
-> Update this section with the exact dataset(s) and any filters you applied (year range, carriers, airports).
-
----
-
-## ⚙️ Setup & Environment
-
-**Prereqs:** Python 3.10+ recommended, `pip` or `conda`, Jupyter/VS Code.
-
-```bash
-# (Option A) with conda
-conda create -n flight-delay python=3.10 -y
-conda activate flight-delay
-pip install -r requirements.txt    # if present
-
-# (Option B) with venv
-python -m venv .venv
-# Windows: .venv\Scripts\activate    |   macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-If you don’t have a `requirements.txt` yet, start with:
-
-```txt
-pandas
-numpy
-scikit-learn
-matplotlib
-plotly
-seaborn
-jupyter
-xgboost            # if used
-lightgbm           # if used
-pyarrow            # if using parquet
-```
-
----
-
-## ▶️ How to Run
-
-1. **Clone & open** the repo in VS Code or Jupyter Lab.
-2. **Activate** your environment (see above) and install dependencies.
-3. **Place data** in `data/` (or update file paths in the notebook).
-4. **Open** `casestudy-flightdelay.ipynb` and run cells top to bottom.
-
-Optional:
-
-* Export charts to `/reports`.
-* Persist trained models to `/models` for reuse.
 
 ---
 
@@ -108,8 +51,6 @@ Optional:
 * Encode categoricals: target/one‑hot encodings for carrier, origin, dest.
 * Split strategy: time‑aware split (train on past, test on future) or stratified random split.
 
-> Replace with the exact steps you implemented.
-
 ---
 
 ## 📊 EDA – What We Looked At
@@ -117,13 +58,8 @@ Optional:
 * Delay distribution & skew; cancellation patterns.
 * Seasonal/weekly/hourly trends; hub vs regional airports.
 * Carrier comparisons; route‑level hotspots.
-* Correlations across numeric features (Distance, TaxiOut/In, AirTime, CRS times).
+* Correlations across numeric features (Distance, AirTime, CRS times).
 * Traffic proxies: flights per hour/airport, utilization windows.
-
-Add a few example figures (save from the notebook into `/reports` and embed):
-
-![Sample: Delay distribution](reports/fig_delay_distribution.png)
-![Sample: Delays by hour](reports/fig_delays_by_hour.png)
 
 ---
 
@@ -133,11 +69,6 @@ Add a few example figures (save from the notebook into `/reports` and embed):
 
 * Metrics: Accuracy, Precision/Recall, F1, ROC‑AUC, PR‑AUC.
 * Baselines: Dummy (majority), Logistic Regression, Random Forest, Gradient Boosting/XGBoost.
-
-**Regression:**
-
-* Metrics: MAE, RMSE, R², MAPE (if applicable).
-* Baselines: Mean/Median predictor, Linear Regression/Regularized, Tree‑based (RF/XGB).
 
 **Validation:**
 
@@ -170,7 +101,6 @@ Add a few example figures (save from the notebook into `/reports` and embed):
 
 * [ ] Add weather joins (METAR/NOAA) for stronger predictive power.
 * [ ] Add airport/route capacity features (hourly load).
-* [ ] Promote to a script/CLI (e.g., `src/` with `train.py`, `predict.py`).
 * [ ] Streamlit dashboard for risk scoring & what‑if analysis.
 * [ ] Model monitoring: drift checks on new months.
 
