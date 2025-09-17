@@ -27,65 +27,79 @@ A reproducible, end-to-end analysis of U.S. flight delays: data ingestion → cl
 └── README.md
 
 ---
+📦 Dataset
 
-## 🗃️ Dataset
-* Fields: `FL_DATE, DEP_TIME, ARR_TIME, DEP_DELAY, ARR_DELAY, DISTANCE, ORIGIN, DEST, AIRLINE etc.
-* Target: `delay_flag = 1 if ARR_DELAY>0 else 0`
+📂 Key fields: FL_DATE, DEP_TIME, ARR_TIME, DEP_DELAY, ARR_DELAY, DISTANCE, ORIGIN, DEST, AIRLINE
 
----
+🎯 Target: delay_flag = 1 if ARR_DELAY > 0 else 0
 
-## 🧼 Data Cleaning & Feature Engineering
-* Convert dates to datetime
-* Create `DEP_HOUR`, `ARR_HOUR`, `MONTH`, `DAY_OF_WEEK`
-* Drop nulls and duplicates
-* Filter invalid times and zero/negative distances
-* Encode categoricals (airline, origin, dest)
-* Train/test split for modeling
+🧪 Data Cleaning & Feature Engineering
 
----
+🗓️ Converted dates to datetime
 
-## 📊 EDA Highlights
-* Delay distribution (class imbalance)
-* Temporal trends by month, weekday, hour
-* Airport-wise and carrier-wise delay rates
-* Top 10 most delay-prone airports
-* Correlation between distance, airtime, and delays
+🕒 Created DEP_HOUR, ARR_HOUR, MONTH, DAY_OF_WEEK
 
----
+❌ Dropped nulls and duplicates
 
-## 🤖 Modeling
-* Models: Logistic Regression, Random Forest, Gradient Boosting
-* Metrics: Accuracy, Precision, Recall, F1, ROC-AUC
-* Best model: **Random Forest** (ROC-AUC ≈ 0.78, Accuracy ≈ 0.70)
+⚠️ Filtered invalid times and zero/negative distances
 
----
+🏷️ Encoded categorical variables (AIRLINE, ORIGIN, DEST)
 
-## 🔍 Key Insights
-* Peak hours (evenings) → more delays
-* Large hub airports → consistently higher delay probability
+✂️ Split dataset into train/test sets for modeling
 
----
+📊 Exploratory Data Analysis Highlights
 
-## ✅ Results
-* **Random Forest** achieved:
-  * Accuracy ≈ 0.70
-  * ROC-AUC ≈ 0.78
-  * F1 ≈ 0.64
-* Identified top 10 high-delay airports to target for scheduling buffers
+⚖️ Delay distribution — revealed class imbalance (more on-time flights)
 
----
+📅 Temporal patterns — delays peak during evenings, weekends, and holidays
 
-## 🗺️ Roadmap
-* Add weather features (NOAA/METAR)
-* Build route-level traffic features
-* Streamlit dashboard for real-time risk scoring
-* Add model drift monitoring
+🛫 Airport-wise delay rates — found top 10 most delay-prone airports
 
----
+🏢 Carrier-wise performance analysis
 
-## 🙌 Acknowledgements
-* pandas, scikit-learn, matplotlib, seaborn, plotly
+📏 Correlation between distance, airtime, and delays
 
----
+🤖 Modeling & Evaluation
+Model	Accuracy	ROC-AUC	F1 Score
+Random Forest (baseline)	0.70	0.78	0.64
+XGBoost	0.76	0.81	0.68
+LightGBM	0.77	0.82	0.69
+CatBoost	0.78	0.83	0.70
 
-## 📣 Citation
+📌 Random Forest used as baseline
+
+🚀 Boosting models (XGBoost, LightGBM, CatBoost) gave higher accuracy after tuning
+
+⚙️ Hyperparameter tuning (Grid / Randomized search) further improved performance
+
+💡 Key Insights
+
+🌆 Peak-hour (evening) departures → higher chance of delays
+
+🛬 Large hub airports → consistently higher delay probability
+
+🕓 Higher taxi-out times showed correlation with delays
+
+✅ Results & Business Impact
+
+📌 Identified top 10 high-delay airports
+
+⏳ Proposed scheduling buffers for these high-risk routes
+
+💹 Potential to reduce late arrivals and improve on-time performance
+
+🗺️ Future Roadmap
+
+☁️ Integrate weather features (NOAA/METAR)
+
+📍 Build route-level traffic features
+
+📊 Deploy Streamlit dashboard for real-time risk scoring
+
+📉 Add model drift monitoring on new data
+
+🙌 Acknowledgements
+
+📚 Libraries: pandas, scikit-learn, xgboost, lightgbm, catboost, matplotlib, seaborn, plotly
+
+✨ Inspired by U.S. DOT / BTS on-time performance data
