@@ -29,7 +29,7 @@ A reproducible, end-to-end analysis of U.S. flight delays: data ingestion → cl
 ---
 
 ## 🗃️ Dataset
-* Fields: `FL_DATE, DEP_TIME, ARR_TIME, DEP_DELAY, ARR_DELAY, DISTANCE, ORIGIN, DEST, AIRLINE, TAXI_OUT, TAXI_IN` etc.
+* Fields: `FL_DATE, DEP_TIME, ARR_TIME, DEP_DELAY, ARR_DELAY, DISTANCE, ORIGIN, DEST, AIRLINE etc.
 * Target: `delay_flag = 1 if ARR_DELAY>0 else 0`
 
 ---
@@ -63,7 +63,6 @@ A reproducible, end-to-end analysis of U.S. flight delays: data ingestion → cl
 ## 🔍 Key Insights
 * Peak hours (evenings) → more delays
 * Large hub airports → consistently higher delay probability
-* Higher taxi-out times correlate with delays
 
 ---
 
@@ -85,7 +84,6 @@ A reproducible, end-to-end analysis of U.S. flight delays: data ingestion → cl
 ---
 
 ## 🙌 Acknowledgements
-* U.S. DOT / BTS flight data
 * pandas, scikit-learn, matplotlib, seaborn, plotly
 
 ---
